@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,600,700|Work+Sans:400,700,800");
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
 html {
   overflow-x: hidden;
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Hammersmith One", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-weight: 400;
@@ -18,7 +20,7 @@ p {
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Hammersmith One", sans-serif;
   color: #000;
   font-weight: 600;
 }
@@ -790,4 +792,7 @@ textarea.form-control {
   color: #f44336;
 }
 
-/*# sourceMappingURL=maps/style.css.map */
+.titre-prenom{
+  font-family: 'pacifico', cursive;
+  font-size: 2rem;
+}
