@@ -800,3 +800,9 @@ textarea.form-control {
 .esp-cont-form{
   margin-top: 80px;
 }
+
+.img-len-profil{
+  margin-left: 350px;
+  border-radius: 15px;
+  max-width: 30%;
+}
