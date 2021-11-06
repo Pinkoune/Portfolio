@@ -107,6 +107,7 @@ h6, .h6 {
   background: #fff;
   color: #000;
   border-color: #fff;
+  border-radius: 15px;
 }
 
 .btn-white:hover {
@@ -368,11 +369,13 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
 
 .inner-box {
   position: relative;
+  border-radius: 15px;
 }
 
 .inner-box .image {
   position: relative;
   overflow: hidden;
+  border-radius: 15px;
 }
 
 .inner-box .image img {
@@ -380,6 +383,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   width: 100%;
   display: block;
   transition: all 0.3s;
+  border-radius: 15px;
 }
 
 .inner-box .image .overlay-box {
@@ -393,6 +397,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   display: block;
   transition: all .6s ease;
   overflow: hidden;
+  border-radius: 15px;
 }
 
 .inner-box .image .overlay-box:before {
@@ -406,6 +411,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   opacity: 0;
   transition: all 0.4s;
   background-color: rgba(47, 50, 56, 0.8);
+  border-radius: 15px;
 }
 
 .inner-box:hover .image img {
@@ -420,6 +426,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
 
 .inner-box:hover .image .overlay-box {
   opacity: 1;
+  border-radius: 15px;
 }
 
 .inner-box:hover .image .overlay-box .overlay-content h5 {
