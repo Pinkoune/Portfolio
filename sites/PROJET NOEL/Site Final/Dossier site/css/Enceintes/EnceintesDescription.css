@@ -1,0 +1,66 @@
+.entete_description{ /* Le bas de l'entête */
+    margin-top: 400px;
+    position: relative;
+    display: block;
+    z-index: 3;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    align-content: space-between;
+}
+
+.entete_description h1 span{ /* Titre de la page */
+    color: black;
+    display: block;
+    line-height: 1;
+    font-size: 35;
+}
+
+.button{ /* Bouton de la div droite " Démo" */
+    margin-bottom: 100px;
+    height: 60px;
+}
+
+button::after {
+    -webkit-transition: all 20s;
+    -moz-transition: all 20s;
+    transition: all 0.8s;
+}
+
+.entete_description_bouton { /* Contenu du bouton */
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    border: 2px solid #FFFFFF;
+    color: black;
+    display: block;
+    font-size: 20;
+    font-weight: bold;
+    padding: 20px 60px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+button::before, button::after { /* Couleur du backround par dessus */
+    background: black;
+    content: '';
+    position: absolute;
+    z-index: -2;
+}
+
+.entete_description_bouton:hover {
+    color: white;
+}
+
+.entete_description_bouton::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+}
+    
+.entete_description_bouton:hover:after {
+    width: 100%;
+ }

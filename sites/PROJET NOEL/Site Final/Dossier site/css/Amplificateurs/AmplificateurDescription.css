@@ -1,0 +1,18 @@
+.entete_description{ /* Le bas de l'entête */
+    margin-top: 370px;
+    position: relative;
+    display: block;
+    z-index: 3;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    align-content: space-between;
+}
+
+.entete_description h1 span{ /* Titre de la page */
+    color: black;
+    display: block;
+    line-height: 1,5;
+    margin-bottom: 15px;
+    font-size: 35;
+}

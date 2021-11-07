@@ -1,0 +1,106 @@
+body{
+    background-image: url(../../Image/raclette.jpeg);
+    margin: 0;
+	padding: 0;
+	font: BlinkMacSystemFont;
+}
+#container{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+}
+/*Barre de Navigation */
+
+.navbar {
+
+	background-color: rgb(207 91 0);
+	display: flex;
+	position: relative; 
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+}
+
+.lien {
+	height: 100%;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: auto;
+	}
+
+.lien ul {
+	display: flex; 
+	padding: 0px;
+	font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+	color: whitesmoke;
+}
+
+.lien li {
+	display: flex; 
+	padding: 0px;
+	font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif; 
+	color: whitesmoke;
+}
+
+.lien li a {
+	display: block; 
+	text-decoration: none;
+	font-size: 12px; 
+	padding: 7px 13px;	
+}
+.lien2 li a {
+	display: block; 
+	text-decoration: none;
+	font-size: 12px; 
+    padding: 7px 13px;
+    margin-right: 10%;
+}
+
+.logoa {
+	height: 60px;
+	width: auto;
+	margin-left: 150px;
+}
+/*Barre de Navigation */
+/* Bordered form */
+form {
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+}
+#container h1{
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: rgb(207 91 0);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.inscritxt {
+    text-align: center;
+    text-decoration: none;
+}

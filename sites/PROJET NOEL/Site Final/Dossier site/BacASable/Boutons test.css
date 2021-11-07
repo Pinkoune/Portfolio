@@ -1,0 +1,60 @@
+button::after {
+-webkit-transition: all 10s;
+-moz-transition: all 10s;
+transition: all 0.5s;
+}
+.button1 {
+background: none;
+border: 4px solid #FFFFFF;
+border-radius: 10px;
+color: #FFFFFF;
+display: block;
+font-size: 2em;
+font-weight: bold;
+margin: 100px auto;
+padding: 1em 4em;
+position: relative;
+}
+.button2 {
+background: none;
+border: 4px solid #FFFFFF;
+border-radius: 10px;
+color: #FFFFFF;
+display: block;
+font-size: 2em;
+font-weight: bold;
+margin: 100px auto;
+padding: 1em 4em;
+position: relative;
+}
+button::before,
+button::after {
+background: #fff;
+content: '';
+position: absolute;
+z-index: -1;
+}
+.button1:hover {
+color: #19DF00;
+}
+.button2:hover {
+color: #FF0000;
+}
+.button1::after {
+height: 0;
+left: 0;
+top: 0;
+width: 100%;
+}
+.button1:hover:after {
+height: 100%;
+}
+.button2::after {
+height: 100%;
+left: 0;
+top: 0;
+width: 0;
+}
+.button2:hover:after {
+width: 100%;
+}

@@ -1,0 +1,105 @@
+/* Eléments principaux de la page */
+
+body
+{ 	
+	background: url('backgroundvt.png')no-repeat center fixed;
+	margin-left:0;
+	margin-right:0;
+	background-size: 105%;
+	display:block;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #181818;
+}
+
+#bloc_page
+{
+    width: 900px;
+    margin: auto;
+}
+
+section h1, footer h1, nav a
+{
+    font-family: Arial, serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* Head */
+
+head
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#titre_principal
+{
+    display: flex;
+	color: #FFFFFF;
+}
+head h1
+{
+    font-family: 'Arial', serif;
+    font-size: 2.5em;
+    font-weight: normal;
+    margin: 10px;
+}
+
+head h2
+{
+    font-family: Dayrom, serif;
+    font-size: 1.1em;
+    margin-top: 0px;
+    font-weight: normal;
+}
+
+/* Navigation */
+
+nav
+{
+    display: inline-block;
+}
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+	
+}
+
+nav li
+{
+    margin-right:35;
+	margin-left:0;
+}
+
+nav a
+{
+    font-size: 1.4em;
+    color: #797FFB;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+nav a:hover
+{
+    color: #FFD700;
+    border-bottom: 5px solid #FFD700;
+}
+
+/* Bannière */
+
+#banniere_image
+{
+    margin-top: 20px;
+    border-radius: 6px;
+    background: url('background.png') no-repeat;
+	background-size: cover;
+	width: 900px;
+	height: 600px;
+    position: relative;
+	background-position: center;
+    box-shadow: 0px 4px 6px #1c1a19;
+	margin-bottom: 20px;
+}
+
+

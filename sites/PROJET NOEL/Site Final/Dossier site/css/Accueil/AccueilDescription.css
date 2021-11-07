@@ -1,0 +1,111 @@
+.entete_description{ /* Le bas de l'entête */
+    margin-top: 750px;
+    position: relative;
+    display: block;
+    z-index: 3;
+    display: flex;
+    margin-left: 20;
+    align-items: flex-start;
+    align-content: space-between;
+}
+
+.entete_description h1 span{ /* Titre de la page */
+    color: white;
+    display: block;
+    line-height: 1,5;
+    font-size: 19;
+}
+
+.entete_description_presentation { /* L'effet des noms */
+    overflow: hidden;
+    border-right: .30em solid rgb(255, 255, 255);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+      typing 5.0s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* l'effet typing (écriture) */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* L'effet de la barre du curseur */
+  @keyframes blink-caret {
+    from, to { border-color: white }
+    80% { border-color: rgb(255, 255, 255); }
+  }
+.entete_description_presentation_slogan{ /* L'effet du slogan */
+    overflow: hidden;
+    border-right: .30em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+    typing 5.0s steps(40, end),
+    blink-caret .75s step-end infinite;
+    }
+
+    /* l'effet typing (écriture) */
+    @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+    }
+
+    /* L'effet de la barre du curseur */
+    @keyframes blink-caret {
+    from, to { border-color: white }
+    80% { border-color: rgb(255, 255, 255); }
+    }
+
+.button{ /* Le bouton "découvrir" */
+    margin-left: 300px;
+    height: 60px;
+}
+
+button::after {
+    -webkit-transition: all 20s;
+    -moz-transition: all 20s;
+    transition: all 0.8s;
+}
+
+.entete_description_bouton { /* Contenu du bouton */
+    margin-left: 550px;
+    margin-right: 20;
+    margin-top: -7;
+    background: white;
+    border: 2px solid #FFFFFF;
+    color: rgb(9, 10, 85);
+    display: block;
+    font-size: 20;
+    font-weight: bold;
+    padding: 20px 50px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+button::before, button::after { /* Couleur du backround par dessus */
+    background: rgb(9, 10, 85);
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+
+.entete_description_bouton:hover {
+    color: white;
+}
+
+.entete_description_bouton::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+}
+    
+.entete_description_bouton:hover:after {
+    width: 100%;
+ }

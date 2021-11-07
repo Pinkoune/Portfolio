@@ -1,0 +1,286 @@
+body {   
+	margin: 0;
+	padding: 0;
+	font: BlinkMacSystemFont;
+	
+}
+
+/*Barre de Navigation */
+
+.navbar {
+
+	background-color: rgb(207 91 0);
+	display: flex;
+	position: relative; 
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+}
+
+.lien {
+	height: 100%;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-left: auto;
+	}
+
+.lien ul {
+	display: flex; 
+	padding: 0px;
+	font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+	color: whitesmoke;
+}
+
+.lien li {
+	display: flex; 
+	padding: 0px;
+	font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif; 
+	color: whitesmoke;
+}
+
+.lien li a {
+	display: block; 
+	text-decoration: none;
+	font-size: 12px; 
+	padding: 7px 13px;	
+}
+.lien2 li a {
+	display: block; 
+	text-decoration: none;
+	font-size: 12px; 
+    padding: 7px 13px;
+    margin-right: 10%;
+}
+
+.logoa {
+	height: 60px;
+	width: auto;
+	margin-left: 150px;
+}
+/*Barre de Navigation */
+
+/*Texte présentation*/
+.presentation {
+    height: 10%;
+    width: 70%;
+    /*border: solid blue 2px;*/
+    margin-left: auto;
+    margin-right: auto;
+	margin-top: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: rgb(207 91 0);
+}
+.texteb {
+    font-size: 18px;
+    width: 70%;
+    height: 30%;
+    /*border: solid red 2px;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 25px;
+}
+/*Texte présentation*/
+/*Carre*/
+.grille {
+    display: flex;
+	margin: auto;
+    /*border: blue solid 2px;*/
+    height: 100%;
+    width: 100%;
+	margin-top: -20%;
+}
+.grille2 {
+    display: flex;
+	margin: auto;
+    /*border: blue solid 2px;*/
+    height: 100%;
+    width: 100%;
+	margin-top: -30%;
+}
+.boite {
+    /*border: blue 2px solid;*/
+    height: 32%;
+	width: 32%;
+	border-radius: 15px;
+	margin: auto;
+
+}
+.boite img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 15px;
+}
+/*footer */
+footer{
+	background-color: rgb(207 91 0);
+	height:auto;
+	width:100%;
+	padding-top:40px;
+	color:white;
+}
+.contenu_footer{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column;
+	text-align:center;
+}
+.contenu_footer h3{
+	font-size:1.8rem;
+	font-weight:400;
+	text-transform:capitalize;
+	line-height:3rem;
+}
+.footer-content p{
+	max-width:500px;
+	margin:10px auto;
+	line-height:28px;
+	font-size:14px;
+}
+.réseaux{
+	list-style:none;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	margin:1rem 0 3rem 0;
+}
+.réseaux li{
+	margin:0 10px;
+}
+.réseaux a{
+	text-decoration:none;
+	color:white;
+}
+.réseaux a i{
+	font-size:1.1rem;
+	transition:color .4s ease;
+}
+.social a:hover i{
+	color:aqua;
+}
+.bas_footer{
+	background-color: rgb(207 91 0);
+	width:100%;
+	padding:20px 0;
+	text-align:center;
+}
+.bas_footer p{
+	font-size:14px;
+	word-spacing:2px;
+	text-transform:capitalize;
+}
+.bas_footer span{
+	text-transform:uppercase;
+	font-weight:200;
+}
+
+.rac {
+	text-align: center;
+}
+
+/* effet grossissement */
+.big{
+    /*  transition  sur la largeur et la hauteur pendant une seconde. */
+    -webkit-transition: all 1s ease; /* Safari et Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    transition: all 1s ease;    
+}
+
+.big:hover{
+    /*L'image est grossie de 1.05*/
+    -webkit-transform:scale(1.05); /* Safari et Chrome */ 
+    -moz-transform:scale(1.05); /* Firefox */ 
+    transform:scale(1.05);    
+}
+
+/* effet zoom */
+.zoom{
+    overflow:hidden;/*On empeche l'image de dépasser du bloc*/
+    display:block;
+}
+  
+.zoom img{
+    transition:1s;
+   
+}
+  
+.zoom:hover img{
+    transform : scale(1.1);
+}
+
+/* Conteneur principal */
+.overlay-image {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+   
+/* Image originale */
+.overlay-image .image {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+   
+/* Texte original */
+.overlay-image .titre {
+	color: #fff;
+	font-size: 20px;
+	line-height: 1.5em;
+	text-shadow: 2px 2px 2px #000;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+}
+.overlay-image .texte {
+	color: #fff;
+	font-size: 20px;
+	line-height: 1.5em;
+	text-shadow: 2px 2px 2px #000;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 0%;
+}
+
+/* Overlay */
+.overlay-image .hover {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: .5s ease;
+	background-color: rgba(155, 155, 155, 20%);
+	border-radius: 15px;
+   }
+   
+/* Apparition overlay sur passage souris */
+.overlay-image:hover .hover {
+	opacity: 1;
+}
+/*Bouton*/
+input[type=submit] {
+    background-color: rgb(207 91 0);
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+	border-radius: 15px;
+	margin-top: 32%;
+}
+input[type=submit]:hover {
+    background-color: black;
+    color: rgb(207 91 0);
+    border: 1px solid rgb(207 91 0);
+	border-radius: 15px;
+}

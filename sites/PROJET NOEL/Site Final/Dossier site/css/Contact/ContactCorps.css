@@ -1,0 +1,119 @@
+.contact{ /* Titre Contact */
+    padding-top: 150px;
+    text-transform: uppercase;
+    font-size: 20;
+    text-align: center;
+}
+
+.contact_nav{ /* Navigation contact */
+    width: 70%;
+    margin: auto;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+
+.bigdiv{ /* Div rassemblant les 2 petites div */
+    margin-top: 20px;
+    border : 2px solid rgba(0, 0, 0, 0), 255;
+    width : 100%;
+    height : 500px;
+    display : flex;
+    flex-direction :row;
+
+}
+
+.bigdiv_gauche{ /* Englobe toute la div gauche */
+    border : 3px solid rgba(0, 0, 0, 0);
+    background-color: rgb(73, 141, 219);
+    width : 600px;
+    height : 436px;
+    margin-top : 30px;
+    margin-left: 250px;
+    margin-right : 300px;
+    margin-bottom: 50px;
+    z-index: 1;
+}
+
+.bigdiv_droite{ /* Englobe toute la div droite */
+    border : 2px solid rgba(194, 194, 194, 0);
+    position: relative;
+    background-color: rgb(73, 141, 219);
+    width : 600px;
+    height : 436px;
+    margin-top : 30px;
+    margin-right : 300px;
+    margin-bottom: 50px;
+    z-index: 1;
+}
+.bigdiv_desc_titre{ /* Titre des bigdiv gauche et droite */
+    text-align: center;
+    margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30;
+    margin-left: 20px;
+    color: rgb(255, 255, 255);
+    display: block;
+    text-transform: uppercase;
+    z-index: 6;
+}
+
+.bigdiv_desc_texte{ /* Texte des bigdiv gauche et droite */
+    text-align: center;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    display: block;
+    z-index: 6;
+    line-height: 300%;
+    margin-left: 20px; 
+    margin-right: 20px;  
+    font-size: 25;
+    font-family: Raleway;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+}
+
+.bigdiv_Entreprise{ /* Englobe toute la div "entreprise" */
+    border : 3px solid rgba(0, 0, 0, 0);
+    background-color: rgb(44, 89, 141);
+    width : auto;
+    height : 950px;
+    margin-top : 30px;
+    margin-bottom: 50px;
+    z-index: 1;
+}
+
+.bigdiv_entreprise_titre{ /* Titre de la bigdiv "entreprise" */
+    text-align: center;
+    margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30;
+    color: rgb(255, 255, 255);
+    display: block;
+    text-transform: uppercase;
+    z-index: 6;
+}
+
+.bigdiv_entreprise_texte{ /* Texte de la bigdiv "entreprise" */
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    display: block;
+    z-index: 6;
+    margin-left: 20px; 
+    margin-right: 20px;  
+    font-size: 25;
+    font-family: Raleway;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+}
+ 
+.barre_fondateur{
+    width: 80;
+    min-width: 400;
+    max-width: 800;
+ }
+
+ .fondateur{
+    width: 1000;
+    margin-top: 30;
+    margin-left: 250;
+    border-radius:10px 0;
+
+
+}

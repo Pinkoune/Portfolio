@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<!-- Référence des pages css, de l'icone ainsi que des police d'écritures. -->
+		<title>Devialet - Démo</title>
+		<link rel="apple-touch-icon" href="../imgtest/icon-192x192.png">
+		<link rel="shortcut icon" href ="../imgtest/favicon.ico">
+		<link rel="stylesheet" href="../css/Demo/DemoEntete.css">
+		<link rel="stylesheet" href="../css/Demo/DemoNav.css">
+		<link rel="stylesheet" href="../css/Demo/DemoTout.css">
+		<script src="https://kit.fontawesome.com/09b9698f13.js" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
+	</head>
+	<body>
+		<!-- Ici se dresse l'entête du site qui contiendra la barre de navigation, le menu hamburger et l'image d'arrière plan. -->
+		<header>
+			<div class="entete"> 
+				<nav>
+					<div class = "tout_nav">
+						<!-- La div pour la barre de navigation -->
+						<div class ="entete_nav">
+							<!-- Le menu hamburger -->
+							<div class ="entete_nav_burger">
+								<input id="menu__toggle" type="checkbox" />
+								<label class="menu__btn" for="menu__toggle">
+								  <span></span>
+								</label>
+								<ul class="menu__box">
+                                    	<li><a class="menu__item" href="../Code/Amplificateurs.html">AMPLIFICATEURS</a></li>
+                                        <li><a class="menu__item" href="../Code/Ecouteurs.html">ÉCOUTEURS</a></li>
+                                        <li><a class="menu__item" href="../Code/Enceintes.html">ENCEINTES</a></li>
+										<li><a class="menu__item" href="../../../../../projets/p_devialet.html">RETOUR AU PORTFOLIO</a></li>
+								</ul>
+							</div>
+							<!-- Le contenu de la barre de navigation -->
+							<div class = "entete_nav_logo">
+								<h1 class = "entete_nav_logo_titre">Devialet</h1>
+							</div>
+							<div class = "entete_nav_menu">
+								<a href="Accueil.html" class="entete_nav_menu_liens"><i class="fas fa-home"></i> ACCUEIL</a>
+								<a href="Démo.html" class="entete_nav_menu_liens"><i class="fas fa-air-freshener"></i> DÉMO</a>
+								<a href="Contact.html" class="entete_nav_menu_liens"><i class="fas fa-user-circle"></i> CONTACT</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+				<!-- La vidéo de présentation de la page démo -->
+				<div class="video">
+					<video autoplay loop muted poster width = "1450">
+						<source src="../vidtest/Phantom-avec-fond.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>	
+		</header>			
+	</body>
+</html>

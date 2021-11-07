@@ -1,0 +1,90 @@
+body 
+{
+	background:url('backgroundvt.png')no-repeat center fixed;
+	margin-right:40px;
+	margin-left:20px;
+	background-size:105%;
+	display:block;
+	font-family:'Trebuchet MS',Arial,sans-serif;
+	color:#FFFFFF;
+}
+}
+#bloc_page 
+{
+	width:500px;
+	margin:auto;
+}
+.bouton_accueil
+{
+	height: 30px;
+	position: absolute;
+	left: 5px;
+	top: 10px;
+	background: linear-gradient(none)repeat-x;
+	border: 3px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 2,9em;    
+	text-align: center;
+	padding: 10px 8px 0px 8px;
+	color: white;
+	text-decoration: none;
+}
+.bouton_précédent
+{
+	height: 30px;
+	position: absolute;
+	left: 5px;
+	top: 60px;
+	background: linear-gradient(none)repeat-x;
+	border: 3px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 2,9em;    
+	text-align: center;
+	padding: 10px 8px 0px 8px;
+	color: white;
+	text-decoration: none;
+}
+nav
+{
+    display: inline-block;
+    width: 800px;
+}
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+	margin-right: 20px;
+	margin-left:280px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #1798FF;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+nav a:hover
+{
+    color: #FFD700;
+    border-bottom: 5px solid #FFD700;
+}
+.bouton_article 
+{
+	height: 20px;
+	position: static;
+	left: 5px;
+	bottom:auto;
+	background: linear-gradient(none)repeat-x;
+	border: 3px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 2,9em;    
+	text-align: center;
+	padding: 10px 8px 0px 8px;
+	color: white;
+	text-decoration: none;
+}

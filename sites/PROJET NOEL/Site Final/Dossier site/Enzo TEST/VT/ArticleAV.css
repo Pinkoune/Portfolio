@@ -1,0 +1,46 @@
+body
+{
+	background:url('backgroundvt.png')no-repeat center fixed;
+	margin-right:40px;
+	margin-left:20px;
+	background-size:105%;
+	display:block;
+	font-family:'Trebuchet MS',Arial,sans-serif;
+	color:#FFFFFF;
+}
+.bouton_accueil
+{
+	height: 30px;
+	position: absolute;
+	left: 5px;
+	top: 10px;
+	background: linear-gradient(none)repeat-x;
+	border: 3px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 2,9em;    
+	text-align: center;
+	padding: 10px 8px 0px 8px;
+	color: white;
+	text-decoration: none;
+}
+.bouton_précédent
+{
+	height: 30px;
+	position: absolute;
+	left: 5px;
+	top: 60px;
+	background: linear-gradient(none)repeat-x;
+	border: 3px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 2,9em;    
+	text-align: center;
+	padding: 10px 8px 0px 8px;
+	color: white;
+	text-decoration: none;
+}
+.implant
+{
+	display: block;
+    margin-left: auto;
+    margin-right: auto 
+}

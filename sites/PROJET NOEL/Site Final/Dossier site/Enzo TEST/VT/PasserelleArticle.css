@@ -1,0 +1,110 @@
+body {
+font-size: 80%;
+background: url('backgroundpasserelle.jpg')no-repeat center fixed;
+background-size: 110%;
+}
+button::after {
+-webkit-transition: all 10s;
+-moz-transition: all 10s;
+transition: all 0.5s;
+}
+.button1 {
+background: none;
+border: 4px solid #FFFFFF;
+border-radius: 10px;
+color: #FFFFFF;
+display: block;
+font-size: 2em;
+font-weight: bold;
+margin: 100px auto;
+padding: 1em 4em;
+position: relative;
+}
+.button2 {
+background: none;
+border: 4px solid #FFFFFF;
+border-radius: 10px;
+color: #FFFFFF;
+display: block;
+font-size: 2em;
+font-weight: bold;
+margin: 100px auto;
+padding: 1em 4em;
+position: relative;
+}
+button::before,
+button::after {
+background: #fff;
+content: '';
+position: absolute;
+z-index: -1;
+}
+.button1:hover {
+color: #424242;
+}
+.button2:hover {
+color: #424242;
+}
+.button1::after {
+height: 0;
+left: 0;
+top: 0;
+width: 100%;
+}
+.button1:hover:after {
+height: 100%;
+}
+.button2::after {
+height: 100%;
+left: 0;
+top: 0;
+width: 0;
+}
+.button2:hover:after {
+width: 100%;
+}
+.bouton_accueil
+{
+	height: 30px;
+	position: absolute;
+	left: 5px;
+	top: 10px;
+	background: linear-gradient(none)repeat-x;
+	border: 3px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 2,9em;    
+	text-align: center;
+	padding: 10px 8px 0px 8px;
+	color: white;
+	text-decoration: none;
+}
+.bouton_précédent
+{
+	height: 30px;
+	position: absolute;
+	left: 5px;
+	top: 60px;
+	background: linear-gradient(none)repeat-x;
+	border: 3px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 2,9em;    
+	text-align: center;
+	padding: 10px 8px 0px 8px;
+	color: white;
+	text-decoration: none;
+}
+.bouton_article 
+{
+	height: 20px;
+	position: static;
+	left: 5px;
+	bottom:auto;
+	background: linear-gradient(none)repeat-x;
+	border: 3px solid #FFFFFF;
+	border-radius: 5px;
+	font-size: 2,9em;    
+	text-align: center;
+	padding: 10px 8px 0px 8px;
+	color: white;
+	text-decoration: none;
+}

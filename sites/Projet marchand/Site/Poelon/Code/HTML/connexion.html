@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet"media="all" href="../CSS/connexion.css" />
+        <link rel="shortcut icon" type="image/png" href="../../Image/cadenas.png"/>
+        <meta charset="utf-8">
+        <title>Connexion</title>
+	</head>
+	<body>
+        <!--Debut barre de navigation-->
+		 <nav class="navbar">
+			<div class="logo">
+						<img src="../../Image/Raclette_png.png" class="logoa">
+			</div>
+				<div class="lien">
+					<ul>
+                        <li><a href="../HTML/Présentation.html" style="color: whitesmoke;">Nos produits</a></li>
+                        <li><a href="../HTML/panier.html" style="color: whitesmoke;">Panier </a></li>
+                        <li><a href="../HTML/Page-Contact.html" style="color: whitesmoke;">Contact </a></li>
+						<li><a href="../HTML/connexion.html" style="color: whitesmoke;">Conexion / S'inscrire </a></li>
+					</ul>
+				</div>
+		</nav> 
+        <!--Fin barre de navigation-->
+		<div id="container">
+		<!-- zone de connexion -->
+		<form method="post" action="formulaire.php">
+		<h1>Connexion</h1>		
+			<label>Mail</label> <input type="text" name="mailPersonne">
+            <br><br>
+            <label>Mot de passe</label> <input type="password" name="">
+            <br><br>
+            <div class="inscri">
+                <p class="inscritxt">
+                    Si vous n'avez pas de compte créez-en un ! <a href="../HTML/inscription.html">S'inscrire</a>
+                </p>
+            </div>
+            
+			<input type="submit" value="Valider">
+		</form>
+	</body> 
+</html>

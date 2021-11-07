@@ -1,0 +1,35 @@
+.entete_description{ /* Le bas de l'entête */
+    margin-top: 310px;
+    position: relative;
+    display: block;
+    z-index: 3;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    align-content: space-between;
+}
+
+.entete_description h1 span{ /* Titre de la page */
+    color: rgb(255, 255, 255);
+    display: block;
+    line-height: 1,5;
+    margin-bottom: 15px;
+    font-size: 40;
+}
+.img_etui{ /* arrière-plan de l'entête */
+	width: 900;
+    height: 400;
+    position: absolute;
+    margin-top: 0;
+    margin-left: 450;
+    background: url(../../imgtest/gemini_5f919549af188_1200.png) center no-repeat;
+    background-size: cover;
+}
+.div_fin{
+    border: 3px solid rgba(0, 0, 0, 0);
+    background-color: rgb(0, 0, 0);
+    width: auto;
+    height: 200px;
+    margin-top: 400px;
+    z-index: 1;
+}
