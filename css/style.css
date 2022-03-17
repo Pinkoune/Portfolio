@@ -340,6 +340,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
   .input[type=checkbox], input[type=radio] {
     margin-right: 30px;
   }
+
 }
 
 .portfolio {
@@ -815,6 +816,9 @@ textarea.form-control {
   margin-left: 350px;
   border-radius: 15px;
   max-width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
 }
 
 
