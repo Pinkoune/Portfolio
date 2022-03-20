@@ -938,6 +938,46 @@ textarea.form-control {
   transition: transform 0.4s ease 0.2s, stroke-dashoffset 0.4s ease 0.2s;
 }
 
+.auto_slider{
+  position: relative;
+  box-sizing: content-box;
+  display: inline-block;
+  padding: 5px 5px 5px;
+  background: #fff;
+  max-width: 550px;
+  margin: 15px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+@keyframes sliding{
+  0%{left: 0%; }
+  33.33%{left: -100%;}
+  66.66%{left: -200%;}
+  100%{left: 0%;}
+}        
+
+@keyframes indicating{
+  from{
+      left: -100%;
+  }
+  to{
+      left: 0;
+  }
+}
+
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 20s sliding ease infinite; 
+}
+
 @-webkit-keyframes line-animation {
   0% {
     transform: translateY(0);
