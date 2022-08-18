@@ -1,6 +1,6 @@
-# Portfolio_2021
+# Portfolio_2022
 
-Version 2021 du Portfolio de Jérémy Barcelo
+Version 2022 du Portfolio de Jérémy Barcelo
 
 - Projets
 - Veille
