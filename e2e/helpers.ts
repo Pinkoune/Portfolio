@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect, type Page } from '@playwright/test';
+import { expect, type Locator, type Page } from '@playwright/test';
 
 type Saved = { preferredMode?: '3d' | 'classic'; introSeen?: boolean; soundOn?: boolean };
 
@@ -34,3 +34,20 @@ export async function expectAccessible(page: Page) {
 
 export const progress = (page: Page) =>
   page.evaluate(() => JSON.parse(localStorage.getItem('pk-01') ?? '{}').state?.progress);
+
+/**
+ * Attend la fin des fondus d'apparition : axe mesure les contrastes avec l'opacité courante, un
+ * audit lancé en plein fondu signalerait un faux défaut.
+ */
+export async function waitOpaque(target: Locator) {
+  await expect
+    .poll(() =>
+      target.evaluate((el) => {
+        for (let e: Element | null = el; e; e = e.parentElement) {
+          if (getComputedStyle(e).opacity !== '1') return false;
+        }
+        return true;
+      }),
+    )
+    .toBe(true);
+}
