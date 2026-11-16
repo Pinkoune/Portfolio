@@ -6,7 +6,7 @@ import { defineConfig, devices } from '@playwright/test';
  * états. PW_CHROMIUM permet d'utiliser un Chromium déjà installé (bac à sable, poste sans téléchargement).
  */
 const PORT = 4173;
-const BASE = `http://localhost:${PORT}/Portfolio-overpowered/`;
+const BASE = `http://localhost:${PORT}/Portfolio/`;
 
 export default defineConfig({
   testDir: 'e2e',

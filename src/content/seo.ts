@@ -7,7 +7,7 @@ import type { Content } from './build.ts';
  */
 
 /** Adresse publique du site, avec la barre finale. */
-export const DEFAULT_SITE_URL = 'https://pinkoune.github.io/Portfolio-overpowered/';
+export const DEFAULT_SITE_URL = 'https://pinkoune.github.io/Portfolio/';
 
 export const normalizeSiteUrl = (url: string) => (url.endsWith('/') ? url : `${url}/`);
 

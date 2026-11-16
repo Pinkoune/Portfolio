@@ -190,14 +190,14 @@ Règles d'indépendance (vérifiées par ESLint `no-restricted-imports`) : `src/
   canvas `aria-hidden` (tout ce qui s'y active a un bouton DOM), bouton « Saluer Pinkoune » dans la bulle
   (équivalent clavier du clic sur le pingouin).
 - **Tests e2e** : Playwright (`e2e/`, `npm run e2e`, bureau + Pixel 7, build de production via preview).
-  `PW_CHROMIUM` = Chromium déjà installé (bac à sable : `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`).
+  `PW_CHROMIUM` = chemin d'un Chromium déjà installé, si sa version ne correspond pas à `@playwright/test`.
   La CI installe le sien. **Lighthouse CI** (`lighthouserc.json`) : a11y, bonnes pratiques et SEO ≥ 0,95
   bloquants, performance ≥ 0,9 en avertissement ; mesure le mode classique (rendu logiciel en CI).
   Le déploiement attend `check` et `e2e`.
 
 ### Base path
 
-`VITE_BASE` sinon `/Portfolio-overpowered/` pour `build` et `preview`, `/` pour `dev`.
+`VITE_BASE` sinon `/Portfolio/` pour `build` et `preview`, `/` pour `dev`.
 
 ## Tokens (DA vérifiée)
 
