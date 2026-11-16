@@ -3,7 +3,7 @@
     "collect": {
       "startServerCommand": "npm run preview -- --port 4174 --strictPort",
       "startServerReadyPattern": "4174",
-      "url": ["http://localhost:4174/Portfolio-overpowered/"],
+      "url": ["http://localhost:4174/Portfolio/"],
       "numberOfRuns": 3,
       "settings": { "chromeFlags": "--no-sandbox --headless=new" }
     },

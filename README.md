@@ -4,7 +4,7 @@ Portfolio de **Jérémy Barcelo** (Pinkoune), alternant DevOps / plateforme à T
 Un vaisseau low-poly en orbite autour d'un trou noir, un pingouin rose aux commandes, et un mode classique
 pour qui préfère une page web toute simple.
 
-**En ligne :** https://pinkoune.github.io/Portfolio-overpowered/
+**En ligne :** https://pinkoune.github.io/Portfolio/
 
 > État : **phase 6** — vaisseau 3D complet (salles, Pinkoune, progression, son) et mode classique, optimisés pour le mobile, accessibles (WCAG 2.1 AA vérifié en CI), référencés (Open Graph, données structurées) et sous budget de performance.
 
@@ -26,7 +26,7 @@ nvm use            # Node 22
 npm ci
 npm run dev        # http://localhost:5173/
 npm run check      # lint, format, types, contenu, tests
-npm run build && npm run preview   # http://localhost:4173/Portfolio-overpowered/
+npm run build && npm run preview   # http://localhost:4173/Portfolio/
 npm run size       # budget de taille (après build)
 npm run e2e        # tests de bout en bout (après build ; npx playwright install chromium la 1re fois)
 ```
@@ -122,7 +122,7 @@ Sur `main`, si les deux jobs passent, le build est publié sur GitHub Pages (job
 
 Prérequis (une fois) : _Settings › Pages › Build and deployment › Source_ = **GitHub Actions**.
 
-Le base path de Vite vaut `/Portfolio-overpowered/` en build et en preview, `/` en dev.
+Le base path de Vite vaut `/Portfolio/` en build et en preview, `/` en dev.
 `VITE_BASE=/ npm run build` produit un build servi à la racine (homelab, phase B) ; `VITE_SITE_URL`
 donne l'adresse publique utilisée par les balises de partage, robots.txt et sitemap.xml.
 

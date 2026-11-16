@@ -57,11 +57,10 @@ function preloadPlugin(): Plugin {
   };
 }
 
-// GitHub Pages sert le site sous /Portfolio-overpowered/ ; le dev local et l'image Docker sous /.
+// GitHub Pages sert le site sous /Portfolio/ ; le dev local et l'image Docker sous /.
 // VITE_BASE permet de surcharger (ex. VITE_BASE=/ npm run build pour le homelab).
 export default defineConfig(({ command, isPreview }) => ({
-  base:
-    process.env.VITE_BASE ?? (command === 'build' || isPreview ? '/Portfolio-overpowered/' : '/'),
+  base: process.env.VITE_BASE ?? (command === 'build' || isPreview ? '/Portfolio/' : '/'),
   plugins: [react(), contentPlugin(), seoPlugin(), preloadPlugin()],
   define: { __BUILD__: JSON.stringify(buildInfo()) },
   build: {

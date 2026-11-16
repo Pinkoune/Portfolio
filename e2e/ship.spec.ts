@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { boot, expectAccessible, progress } from './helpers.ts';
+import { boot, expectAccessible, progress, waitOpaque } from './helpers.ts';
 
 const map = (page: import('@playwright/test').Page) =>
   page.getByRole('navigation', { name: 'Plan du vaisseau' });
@@ -10,6 +10,7 @@ test.describe('vaisseau 3D', () => {
     const embark = page.getByRole('button', { name: /Embarquer/ });
     await expect(embark).toBeVisible({ timeout: 120_000 });
     await expect(page.locator('[data-ready="true"]')).toBeAttached({ timeout: 120_000 });
+    await waitOpaque(embark);
     await expectAccessible(page);
     await page.keyboard.press('Enter');
     await expect(map(page)).toBeVisible({ timeout: 60_000 });

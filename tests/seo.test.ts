@@ -38,7 +38,7 @@ describe('référencement', () => {
   });
 
   it('robots et sitemap suivent l’adresse du site', () => {
-    expect(robotsTxt(site)).toContain('Disallow: /Portfolio-overpowered/admin/');
+    expect(robotsTxt(site)).toContain('Disallow: /Portfolio/admin/');
     expect(robotsTxt(site)).toContain(`Sitemap: ${site}sitemap.xml`);
     expect(robotsTxt('https://pinkoune.example/')).toContain('Disallow: /admin/');
     expect(sitemapXml(site, '2026-10-05')).toContain(`<loc>${site}</loc>`);
