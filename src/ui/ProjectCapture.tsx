@@ -9,7 +9,13 @@ export function ProjectCapture({ project }: { project: Project }) {
   const media = project.media[0];
   if (media) {
     return (
-      <img className={s.capture} src={import.meta.env.BASE_URL + media.src} alt={t(media.alt)} />
+      <img
+        className={s.capture}
+        src={import.meta.env.BASE_URL + media.src}
+        alt={t(media.alt)}
+        loading="lazy"
+        decoding="async"
+      />
     );
   }
   return (

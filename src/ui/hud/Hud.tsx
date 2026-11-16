@@ -158,8 +158,18 @@ function Companion() {
   return (
     <aside className={s.companion} key={line.key}>
       <p className={`${ui.label} ${s.who}`}>
-        <Diamond size={7} />
-        {content.penguin.name} · {u('hud.pilot')}
+        {/* Équivalent clavier du clic sur le pingouin 3D (succès « Bonjour toi »). */}
+        <button
+          type="button"
+          className={s.wave}
+          onClick={() => useStore.getState().emit('penguin.click')}
+          aria-label={u('hud.wave')}
+          title={u('hud.wave')}
+        >
+          <Diamond size={7} />
+          {content.penguin.name}
+        </button>
+        · {u('hud.pilot')}
       </p>
       <p className={s.line}>{t(line.text)}</p>
       <button

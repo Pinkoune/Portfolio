@@ -147,3 +147,4 @@ sound.label: { fr: Son, en: Sound }
 sound.on: { fr: Son activé · casque conseillé, en: Sound on · headphones recommended }
 sound.off: { fr: Activer le son, en: Turn sound on }
 hud.classicShort: { fr: Classique, en: Classic }
+hud.wave: { fr: Saluer Pinkoune, en: Wave at Pinkoune }

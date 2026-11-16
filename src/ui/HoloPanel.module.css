@@ -241,6 +241,11 @@
   overflow-y: auto;
 }
 
+.body:focus-visible {
+  outline: 1px solid var(--pk-holo);
+  outline-offset: -1px;
+}
+
 .capture {
   width: 100%;
   aspect-ratio: 16 / 7;

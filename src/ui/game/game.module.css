@@ -603,7 +603,7 @@
 
 @media (max-width: 720px) {
   .rankBody {
-    width: 150px;
+    width: min(230px, calc(100vw - 110px));
   }
   .toasts {
     right: 20px;

@@ -43,11 +43,11 @@ export interface CameraPose {
   target: Vector3;
 }
 
-/** Point de vue d'une salle : au fond, à hauteur d'yeux, face à la baie. */
-export function roomPose(id: RoomId): CameraPose {
+/** Point de vue d'une salle : au fond, à hauteur d'yeux, face à la baie (`back` : recul en portrait). */
+export function roomPose(id: RoomId, back = 0): CameraPose {
   const x = roomX(id);
   return {
-    position: new Vector3(x, EYE_HEIGHT, 3.4),
+    position: new Vector3(x, EYE_HEIGHT, 3.4 + back),
     target: new Vector3(x, 1.9, -ROOM.halfDepth),
   };
 }
@@ -60,8 +60,8 @@ export const FAR_JUMP = 2;
  * d'arrivée (DA Motion, « II · Transition »). Pour un saut lointain, deux segments : sortie de la
  * salle de départ, puis entrée dans celle d'arrivée ; la coupe a lieu à mi-parcours, au noir.
  */
-export function travelPath(from: Vector3, to: RoomId, far = false): CatmullRomCurve3[] {
-  const end = roomPose(to).position;
+export function travelPath(from: Vector3, to: RoomId, far = false, back = 0): CatmullRomCurve3[] {
+  const end = roomPose(to, back).position;
   const dir = Math.sign(end.x - from.x) || 1;
   const y = EYE_HEIGHT + 0.05;
   const exit = [
@@ -90,10 +90,13 @@ export function travelDuration(from: RoomId, to: RoomId): number {
   return gap > FAR_JUMP ? 1.6 : 1.6 + (gap - 1) * 0.3;
 }
 
+/** Recul de la caméra en portrait (jusqu'à 1,3 m, sans toucher la cloison arrière). */
+export const pullbackFor = (aspect: number) => MathUtils.clamp((1 - aspect) * 2.4, 0, 1.3);
+
 /** Champ vertical : 45° (DA), élargi en portrait pour garder la salle dans le cadre. */
 export function fovFor(aspect: number) {
   const halfWidth = 4.2;
-  const distance = 3.4 + ROOM.halfDepth;
+  const distance = 3.4 + pullbackFor(aspect) + ROOM.halfDepth;
   const needed = (2 * Math.atan(halfWidth / distance / aspect) * 180) / Math.PI;
-  return MathUtils.clamp(needed, 45, 72);
+  return MathUtils.clamp(needed, 45, 76);
 }

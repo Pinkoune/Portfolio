@@ -233,6 +233,7 @@ export const UI_KEYS = [
   'boot.skip',
   'boot.classic',
   'hud.pilot',
+  'hud.wave',
   'hud.dismiss',
   'hud.keys',
   'hotspot.profile',

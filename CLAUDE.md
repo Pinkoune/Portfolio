@@ -98,8 +98,9 @@ src/three/        scène R3F chargée en lazy :
 src/app/          App (aiguillage classique / 3D) · capabilities.ts · hashRoom.ts
 src/audio/        sound.ts (Web Audio synthétisé) · SoundDirector.tsx (store → sons)
 src/game/         engine.ts (XP, rangs, succès — TS pur) · rules.ts · konami.ts
-scripts/          validate-content.ts
-tests/            Vitest (contenu, i18n, navigation, cadrage de l'intro, moteur de jeu)
+scripts/          validate-content.ts · check-size.ts · og/og.html (image Open Graph)
+tests/            Vitest (contenu, i18n, navigation, cadrage de l'intro, moteur de jeu, SEO, étiquettes)
+e2e/              Playwright (classique, vaisseau, SEO ; audit axe)
 ```
 
 Règles d'indépendance (vérifiées par ESLint `no-restricted-imports`) : `src/classic/` n'importe jamais
@@ -169,6 +170,31 @@ Règles d'indépendance (vérifiées par ESLint `no-restricted-imports`) : `src/
   `hints` en rotation ailleurs), félicitations après la fermeture de l'écran de rang.
 - Son : bouton égaliseur du HUD (touche S, `aria-pressed`), bascule sur l'écran d'embarquement.
 
+### Polish (phase 6)
+
+- **Mobile portrait** : la caméra recule (`pullbackFor(aspect)`, jusqu'à 1,3 m) et le champ monte à 76°
+  (`fovFor`). `HotspotProjector` ramène les repères dans l'écran (étiquette retournée vers l'intérieur) et
+  écarte verticalement les étiquettes qui se chevauchent (`three/labels.ts`, testé ; marge d'arrondi
+  indispensable, sinon une étiquette posée pile sous une autre reste « en contact »). Voile sombre sous le
+  HUD mobile (le champ large montre le plafonnier rose).
+- **Perf** : bibliothèques en morceaux séparés (`react`, `three`, `r3f`, via `codeSplitting.groups` de
+  rolldown, priorités pour que React ne parte pas dans `r3f`). Budget gzip vérifié en CI par
+  `npm run size` (`scripts/check-size.ts`) : initial JS 115 ko, CSS 14 ko, vaisseau 330 ko.
+  Préchargement des trois polices latin et de `hero.webp` (`preloadPlugin`, vite.config.ts).
+  Qualité adaptative (`PerfGuard`, Scene.tsx) : < 40 i/s pendant 3 s à bord → DPR 1 et bloom allégé.
+- **SEO** : `src/content/seo.ts` (pur, testé) + `seoPlugin` : `<!-- pk:seo -->` d'index.html remplacé par
+  titre, description, canonical, Open Graph, carte X et JSON-LD `Person` (sans email) ; robots.txt et
+  sitemap.xml générés. Adresse publique : `VITE_SITE_URL` (défaut GitHub Pages). Image `public/og.jpg`
+  rendue depuis `scripts/og/og.html` (capture 1200 × 630).
+- **A11y** : audit axe (WCAG 2.1 AA) dans les tests e2e ; corps des panneaux focusable (zone défilante),
+  canvas `aria-hidden` (tout ce qui s'y active a un bouton DOM), bouton « Saluer Pinkoune » dans la bulle
+  (équivalent clavier du clic sur le pingouin).
+- **Tests e2e** : Playwright (`e2e/`, `npm run e2e`, bureau + Pixel 7, build de production via preview).
+  `PW_CHROMIUM` = Chromium déjà installé (bac à sable : `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`).
+  La CI installe le sien. **Lighthouse CI** (`lighthouserc.json`) : a11y, bonnes pratiques et SEO ≥ 0,95
+  bloquants, performance ≥ 0,9 en avertissement ; mesure le mode classique (rendu logiciel en CI).
+  Le déploiement attend `check` et `e2e`.
+
 ### Base path
 
 `VITE_BASE` sinon `/Portfolio-overpowered/` pour `build` et `preview`, `/` pour `dev`.
@@ -185,7 +211,8 @@ Durées : 140 / 280 / 560 / 1800 ms.
 
 ## Commandes
 
-`npm run dev` · `npm run build` · `npm run preview` · `npm run check` (lint, format, types, contenu, tests).
+`npm run dev` · `npm run build` · `npm run preview` · `npm run check` (lint, format, types, contenu, tests) ·
+`npm run size` (budget, après build) · `npm run e2e` (Playwright, après build).
 
 ## Phases
 
@@ -194,15 +221,16 @@ Durées : 140 / 280 / 560 / 1800 ms.
 3. ✅ Ambiance : post-processing, intro, transitions.
 4. ✅ Gamification : HUD, XP, rangs, succès, toasts, persistance.
 5. ✅ Pingouin, quartiers, son.
-6. Polish : perf, mobile, a11y, SEO, tests.
+6. ✅ Polish : perf, mobile, a11y, SEO, tests.
 7. Mode éditeur (Sveltia sur /admin) + README « Mettre à jour le site ».
 8. Hébergement homelab (Docker, GHCR, compose ou k3s + ArgoCD).
 
 ## Points ouverts (à reprendre)
 
-- Mobile portrait : champ limité à 72°, certains hotspots sortent du cadre → phase 6.
-- Carte stellaire : étiquettes de planètes qui se chevauchent par moments.
-- Chunk 3D ≈ 1 Mo (280 ko gzip), surtout three.js → découpage / budget en phase 6.
+- Mobile portrait : les pingouins compagnons (placés à droite) sortent du cadre ; les étiquettes écartées
+  s'éloignent parfois de leur ancre sur la carte stellaire.
+- three.js entier (~187 ko gzip) : R3F importe tout l'espace de noms, pas d'arbre élagué possible sans
+  quitter R3F.
 - Le rendu logiciel (CI, Playwright + SwiftShader) tourne à ~1 image/s : les étapes intermédiaires des
   trajets ne sont pas capturables, seuls les états finaux et les bascules d'état le sont.
 - `hero.webp` (mode classique) : rendu une fois en phase 1 depuis le code three.js de `design/` (élément

@@ -1,0 +1,114 @@
+<!doctype html>
+<!-- Image Open Graph (public/og.jpg, 1200 × 630) : ouvrir ce fichier dans un navigateur
+     à 1200 × 630 depuis la racine du dépôt (npm ci fait), puis en faire une capture JPEG. -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: A;
+        src: url(../../node_modules/@fontsource-variable/archivo/files/archivo-latin-wdth-normal.woff2);
+        font-stretch: 62% 125%;
+        font-weight: 100 900;
+      }
+      @font-face {
+        font-family: M;
+        src: url(../../node_modules/@fontsource-variable/martian-mono/files/martian-mono-latin-wdth-normal.woff2);
+        font-stretch: 75% 112.5%;
+        font-weight: 100 800;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+        background: #07060d;
+        overflow: hidden;
+      }
+      .hero {
+        position: absolute;
+        right: -150px;
+        top: -80px;
+        width: 820px;
+        height: auto;
+        -webkit-mask-image: radial-gradient(closest-side, #000 70%, transparent 100%);
+      }
+      .txt {
+        position: absolute;
+        left: 72px;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 22px;
+        color: #eeecf5;
+      }
+      .lab {
+        font-family: M;
+        font-stretch: 87.5%;
+        font-size: 18px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #a29fbd;
+      }
+      .lab b {
+        color: #ff5fa2;
+        font-weight: 400;
+      }
+      h1 {
+        margin: 0;
+        font-family: A;
+        font-stretch: 125%;
+        font-weight: 600;
+        font-size: 84px;
+        letter-spacing: 0.05em;
+        line-height: 1;
+      }
+      .sub {
+        font-family: M;
+        font-stretch: 87.5%;
+        font-size: 22px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .dia {
+        width: 22px;
+        height: 22px;
+        background: #ff5fa2;
+        transform: rotate(45deg);
+        margin: 0 0 6px 4px;
+      }
+      .foot {
+        position: absolute;
+        left: 72px;
+        bottom: 44px;
+        font-family: M;
+        font-stretch: 87.5%;
+        font-size: 16px;
+        letter-spacing: 0.18em;
+        color: #5ce1e6;
+        text-transform: uppercase;
+      }
+      .rule {
+        position: absolute;
+        left: 72px;
+        right: 72px;
+        bottom: 90px;
+        height: 1px;
+        background: #3b3960;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="hero" src="../../src/assets/hero.webp" />
+    <div class="txt">
+      <div class="dia"></div>
+      <div class="lab">PK-01 <b>//</b> Portfolio</div>
+      <h1>PINKOUNE</h1>
+      <div class="sub">Jérémy Barcelo · DevOps &amp; plateforme</div>
+    </div>
+    <div class="rule"></div>
+    <div class="foot">Embarquer à bord · ou mode classique</div>
+  </body>
+</html>

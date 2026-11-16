@@ -1,3 +1,5 @@
+import { useFrame, useThree } from '@react-three/fiber';
+import { useRef, useState } from 'react';
 import { ROOM_IDS, type RoomId } from '../content/schema.ts';
 import { useStore } from '../state/store.ts';
 import { CameraRig } from './CameraRig.tsx';
@@ -33,6 +35,32 @@ const ROOMS: Record<RoomId, (props: RoomProps) => React.ReactNode> = {
 
 const doorsX = ROOM_IDS.map(roomX);
 
+/** Cadence mesurée à bord sous laquelle on allège le rendu (images par seconde). */
+const MIN_FPS = 40;
+
+/**
+ * Qualité adaptative : pendant les 3 premières secondes à bord (hors trajets), on mesure la cadence.
+ * Trop lente : résolution ramenée à 1 et bloom allégé, une seule fois, pour toute la visite.
+ */
+function PerfGuard({ onSlow }: { onSlow: () => void }) {
+  const setDpr = useThree((st) => st.setDpr);
+  const probe = useRef({ frames: 0, time: 0, done: false });
+  useFrame((_, delta) => {
+    const p = probe.current;
+    const { stage, traveling } = useStore.getState();
+    if (p.done || stage !== 'aboard' || traveling) return;
+    p.frames += 1;
+    p.time += Math.min(delta, 0.25);
+    if (p.time < 3) return;
+    p.done = true;
+    if (p.frames / p.time < MIN_FPS) {
+      setDpr(1);
+      onSlow();
+    }
+  });
+  return null;
+}
+
 /** Lumière de la DA : clé blanche, contre-jours rose et ambre venus de la Pupille. */
 function Lights() {
   return (
@@ -57,6 +85,7 @@ export function Scene({
   const room = useStore((s) => s.room);
   const traveling = useStore((s) => s.traveling);
   const aboard = useStore((s) => s.stage === 'aboard');
+  const [slow, setSlow] = useState(false);
 
   return (
     <>
@@ -64,7 +93,8 @@ export function Scene({
       <HotspotProjector />
       <BlackHole reducedMotion={reducedMotion} />
       <Starfield />
-      <PostFx lite={lite} />
+      <PostFx lite={lite || slow} />
+      <PerfGuard onSlow={() => setSlow(true)} />
 
       {/* Approche : le vaisseau vu de l'extérieur ; les salles sont masquées. */}
       {!aboard && (

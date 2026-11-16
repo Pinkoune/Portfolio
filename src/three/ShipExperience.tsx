@@ -131,7 +131,9 @@ export default function ShipExperience({ reducedMotion }: { reducedMotion: boole
 
   return (
     <div className={s.ship} {...swipe}>
+      {/* Décor : tout ce qui s'y active a son bouton dans le DOM (hotspots, HUD). */}
       <Canvas
+        aria-hidden="true"
         className={s.canvas}
         flat
         dpr={[1, mobile ? 1.5 : 1.75]}

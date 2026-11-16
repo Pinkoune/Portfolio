@@ -117,7 +117,8 @@ export function HoloPanel({
         </header>
         <div className={s.rule} />
 
-        <div className={s.body}>
+        {/* Zone défilante atteignable au clavier (flèches), même sans lien à l'intérieur. */}
+        <div className={s.body} tabIndex={0} aria-labelledby="holo-panel-title" role="region">
           <div className={s.titles}>
             <h2 id="holo-panel-title" className={`${ui.display} ${s.title}`}>
               <span className="visually-hidden">{title}</span>

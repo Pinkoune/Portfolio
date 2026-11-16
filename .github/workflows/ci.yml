@@ -51,14 +51,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Rapport de taille
+      - name: Budget de taille
+        shell: bash
         run: |
-          {
-            echo "### Bundle"
-            echo '```'
-            du -h dist/assets/*.js dist/assets/*.css | sort -h
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
+          echo "### Budget de taille" >> "$GITHUB_STEP_SUMMARY"
+          npm run -s size | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Artefact Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -66,10 +63,52 @@ jobs:
         with:
           path: dist
 
+  e2e:
+    name: Bout en bout · accessibilité · Lighthouse
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Navigateur de test
+        run: npx playwright install --with-deps chromium
+
+      - name: Build
+        run: npm run build
+
+      # Classique et 3D (WebGL logiciel), sur bureau et mobile, avec audit axe (WCAG 2.1 AA).
+      - name: Tests de bout en bout
+        run: npm run e2e
+
+      # Le rendu logiciel de la CI donne le mode classique : c'est lui que Lighthouse mesure.
+      - name: Lighthouse
+        run: npx --yes @lhci/cli@0.15.1 autorun
+
+      - name: Rapports
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: rapports-e2e-lighthouse
+          path: |
+            playwright-report
+            test-results
+            .lighthouseci
+          if-no-files-found: ignore
+          retention-days: 14
+
   deploy:
     name: Déploiement GitHub Pages
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: check
+    needs: [check, e2e]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

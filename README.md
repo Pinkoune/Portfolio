@@ -6,7 +6,7 @@ pour qui préfère une page web toute simple.
 
 **En ligne :** https://pinkoune.github.io/Portfolio-overpowered/
 
-> État : **phase 5** — vaisseau 3D, approche, transitions, progression (XP, rangs, succès, trophées), Pinkoune dans chaque salle, Quartiers interactifs et son synthétisé (coupé par défaut) ; mode classique complet.
+> État : **phase 6** — vaisseau 3D complet (salles, Pinkoune, progression, son) et mode classique, optimisés pour le mobile, accessibles (WCAG 2.1 AA vérifié en CI), référencés (Open Graph, données structurées) et sous budget de performance.
 
 ## Stack
 
@@ -16,7 +16,7 @@ pour qui préfère une page web toute simple.
 | 3D        | three.js, React Three Fiber (chargés à la demande)                 |
 | État      | Zustand (persistance localStorage protégée)                        |
 | Contenu   | YAML bilingues validés par Zod, exposés au build en module virtuel |
-| Qualité   | ESLint, Prettier, Vitest                                           |
+| Qualité   | ESLint, Prettier, Vitest, Playwright + axe, Lighthouse CI          |
 | Livraison | GitHub Actions → GitHub Pages (phase B : Docker → homelab)         |
 
 ## Démarrer
@@ -27,6 +27,8 @@ npm ci
 npm run dev        # http://localhost:5173/
 npm run check      # lint, format, types, contenu, tests
 npm run build && npm run preview   # http://localhost:4173/Portfolio-overpowered/
+npm run size       # budget de taille (après build)
+npm run e2e        # tests de bout en bout (après build ; npx playwright install chromium la 1re fois)
 ```
 
 ## Organisation
@@ -108,14 +110,21 @@ Le mode éditeur (CMS sur `/admin`) arrive en phase 7.
 
 ## CI/CD
 
-`.github/workflows/ci.yml`, à chaque pull request et push :
-lint → format → typecheck → validation du contenu → tests → build.
-Sur `main`, le build est publié sur GitHub Pages (job `deploy`, environnement `github-pages`).
+`.github/workflows/ci.yml`, à chaque pull request et push, deux jobs en parallèle :
+
+- **check** : lint → format → typecheck → validation du contenu → tests → build → budget de taille
+  (tableau dans le résumé du job) ;
+- **e2e** : Playwright sur bureau et mobile (mode classique et vaisseau 3D en WebGL logiciel, audit
+  d'accessibilité axe), puis Lighthouse (accessibilité, bonnes pratiques, SEO ≥ 95). Rapports en artefact.
+
+Sur `main`, si les deux jobs passent, le build est publié sur GitHub Pages (job `deploy`, environnement
+`github-pages`).
 
 Prérequis (une fois) : _Settings › Pages › Build and deployment › Source_ = **GitHub Actions**.
 
 Le base path de Vite vaut `/Portfolio-overpowered/` en build et en preview, `/` en dev.
-`VITE_BASE=/ npm run build` produit un build servi à la racine (homelab, phase B).
+`VITE_BASE=/ npm run build` produit un build servi à la racine (homelab, phase B) ; `VITE_SITE_URL`
+donne l'adresse publique utilisée par les balises de partage, robots.txt et sitemap.xml.
 
 ## Crédits
 

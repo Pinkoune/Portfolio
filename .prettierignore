@@ -3,3 +3,6 @@ design
 node_modules
 package-lock.json
 public/admin
+.lighthouseci
+test-results
+playwright-report

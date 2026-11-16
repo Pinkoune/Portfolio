@@ -3,3 +3,6 @@ dist
 *.local
 .DS_Store
 coverage
+.lighthouseci
+test-results
+playwright-report

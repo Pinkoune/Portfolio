@@ -2,7 +2,14 @@ import { describe, expect, it } from 'vitest';
 import { chooseMode } from '../src/app/capabilities.ts';
 import { parseRoomHash, roomHash } from '../src/app/hashRoom.ts';
 import { ROOM_IDS } from '../src/content/schema.ts';
-import { fovFor, ROOM, roomPose, travelDuration, travelPath } from '../src/three/layout.ts';
+import {
+  fovFor,
+  pullbackFor,
+  ROOM,
+  roomPose,
+  travelDuration,
+  travelPath,
+} from '../src/three/layout.ts';
 
 const capable = { webgl: true, lowEnd: false, reducedMotion: false };
 
@@ -65,10 +72,18 @@ describe('trajets caméra', () => {
     expect(segments[1]!.getPointAt(1).distanceTo(roomPose('comms').position)).toBeLessThan(1e-6);
   });
 
-  it('garde la salle dans le cadre en portrait, sans dépasser 72°', () => {
+  it('garde la salle dans le cadre en portrait, sans dépasser 76°', () => {
     expect(fovFor(16 / 9)).toBe(45);
-    expect(fovFor(0.45)).toBeLessThanOrEqual(72);
+    expect(fovFor(0.45)).toBeLessThanOrEqual(76);
     expect(fovFor(0.45)).toBeGreaterThan(45);
+  });
+
+  it('recule la caméra en portrait sans traverser la cloison arrière', () => {
+    expect(pullbackFor(16 / 9)).toBe(0);
+    expect(pullbackFor(0.45)).toBeGreaterThan(1);
+    expect(roomPose('bridge', pullbackFor(0.3)).position.z).toBeLessThan(ROOM.halfDepth);
+    const [path] = travelPath(roomPose('bridge', 1.3).position, 'starmap', false, 1.3);
+    expect(path!.getPointAt(1).distanceTo(roomPose('starmap', 1.3).position)).toBeLessThan(1e-6);
   });
 
   it('dure 1,6 s entre voisines, plus longtemps pour un saut lointain', () => {

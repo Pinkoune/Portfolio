@@ -8,6 +8,7 @@ import {
   CORRIDOR,
   FAR_JUMP,
   fovFor,
+  pullbackFor,
   roomIndex,
   roomPose,
   travelDuration,
@@ -46,6 +47,8 @@ export function CameraRig({ reducedMotion }: { reducedMotion: boolean }) {
   const travel = useRef<Travel | null>(null);
   const target = useRef(roomPose(room).target.clone());
   const baseFov = fovFor(aspect);
+  /** En portrait, on recule un peu pour garder la salle dans le cadre. */
+  const back = pullbackFor(aspect);
   /** Zoom à la molette (0 → 1), remis à zéro à chaque changement de salle. */
   const zoom = useRef(0);
 
@@ -64,14 +67,14 @@ export function CameraRig({ reducedMotion }: { reducedMotion: boolean }) {
   // Arrivée à bord : la caméra prend place dans la salle courante.
   useEffect(() => {
     if (stage !== 'aboard') return;
-    const pose = roomPose(useStore.getState().room);
+    const pose = roomPose(useStore.getState().room, back);
     settled.current = useStore.getState().room;
     travel.current = null;
     camera.up.set(0, 1, 0);
     camera.position.copy(pose.position);
     target.current.copy(pose.target);
     camera.lookAt(pose.target);
-  }, [stage, camera]);
+  }, [stage, camera, back]);
 
   useEffect(() => {
     if (stage !== 'aboard') return;
@@ -89,7 +92,7 @@ export function CameraRig({ reducedMotion }: { reducedMotion: boolean }) {
       // Coupe + fondu 200 ms.
       setFade(true);
       const timer = window.setTimeout(() => {
-        const pose = roomPose(room);
+        const pose = roomPose(room, back);
         camera.position.copy(pose.position);
         target.current.copy(pose.target);
         settled.current = room;
@@ -103,7 +106,7 @@ export function CameraRig({ reducedMotion }: { reducedMotion: boolean }) {
     travel.current = {
       from,
       to: room,
-      curves: travelPath(camera.position, room, far),
+      curves: travelPath(camera.position, room, far, back),
       start: clock.elapsedTime,
       duration,
     };
@@ -117,7 +120,7 @@ export function CameraRig({ reducedMotion }: { reducedMotion: boolean }) {
       window.clearTimeout(off);
       setFade(false);
     };
-  }, [room, stage, reducedMotion, camera, clock]);
+  }, [room, stage, reducedMotion, camera, clock, back]);
 
   useFrame(({ pointer }) => {
     if (useStore.getState().stage !== 'aboard') return;
@@ -158,7 +161,7 @@ export function CameraRig({ reducedMotion }: { reducedMotion: boolean }) {
     }
 
     // Au repos : parallaxe douce au pointeur.
-    const pose = roomPose(settled.current);
+    const pose = roomPose(settled.current, back);
     restTarget.copy(pose.target).add(offset.set(pointer.x * 0.9, pointer.y * 0.45, 0));
     restPosition.copy(pose.position).add(offset.set(pointer.x * -0.15, pointer.y * -0.08, 0));
     const damp = reducedMotion ? 1 : 0.06;

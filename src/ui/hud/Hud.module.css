@@ -291,6 +291,24 @@
   font-size: 10px;
 }
 
+.wave {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.wave:hover {
+  color: var(--pk-pink-soft);
+}
+
 .line {
   font-size: 15px;
   line-height: 1.5;
@@ -318,6 +336,16 @@
 
 /* ---------- Mobile (maquette H1) ---------- */
 @media (max-width: 720px) {
+  /* En portrait, le champ large montre le plafond : un voile garde le HUD lisible. */
+  .hud::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 150px;
+    background: linear-gradient(rgba(7, 6, 13, 0.85), rgba(7, 6, 13, 0.6) 60%, transparent);
+    pointer-events: none;
+  }
+
   .title {
     display: none;
   }
